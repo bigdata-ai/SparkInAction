@@ -10,6 +10,7 @@
 
     <modules>
 
+        <module>scala-tutorial</module>
     </modules>
 
     <properties>
