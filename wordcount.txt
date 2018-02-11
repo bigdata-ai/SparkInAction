@@ -1,0 +1,52 @@
+Speed
+Run programs up to 100x faster than Hadoop MapReduce in memory, or 10x faster on disk.
+
+Apache Spark has an advanced DAG execution engine that supports acyclic data flow and in-memory computing.
+
+
+Logistic regression in Hadoop and Spark
+Ease of Use
+Write applications quickly in Java, Scala, Python, R.
+
+Spark offers over 80 high-level operators that make it easy to build parallel apps. And you can use it interactively from the Scala, Python and R shells.
+
+text_file = spark.textFile("hdfs://...")
+ 
+text_file.flatMap(lambda line: line.split())
+    .map(lambda word: (word, 1))
+    .reduceByKey(lambda a, b: a+b)
+Word count in Spark's Python API
+Generality
+Combine SQL, streaming, and complex analytics.
+
+Spark powers a stack of libraries including SQL and DataFrames, MLlib for machine learning, GraphX, and Spark Streaming. You can combine these libraries seamlessly in the same application.
+
+
+Runs Everywhere
+Spark runs on Hadoop, Mesos, standalone, or in the cloud. It can access diverse data sources including HDFS, Cassandra, HBase, and S3.
+
+You can run Spark using its standalone cluster mode, on EC2, on Hadoop YARN, or on Apache Mesos. Access data in HDFS, Cassandra, HBase, Hive, Tachyon, and any Hadoop data source.
+
+
+Community
+Spark is used at a wide range of organizations to process large datasets. You can find example use cases at the Spark Summit conference, or on the Powered By page.
+
+There are many ways to reach the community:
+
+Use the mailing lists to ask questions.
+In-person events include numerous meetup groups and Spark Summit.
+We use JIRA for issue tracking.
+Contributors
+Apache Spark is built by a wide set of developers from over 200 companies. Since 2009, more than 1000 developers have contributed to Spark!
+
+The project's committers come from 19 organizations.
+
+If you'd like to participate in Spark, or contribute to the libraries on top of it, learn how to contribute.
+
+Getting Started
+Learning Spark is easy whether you come from a Java or Python background:
+
+Download the latest release — you can run Spark locally on your laptop.
+Read the quick start guide.
+Spark Summit 2014 contained free training videos and exercises.
+Learn how to deploy Spark on a cluster.
