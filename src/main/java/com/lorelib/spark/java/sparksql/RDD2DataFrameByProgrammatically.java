@@ -1,4 +1,4 @@
-package com.lorelib.spark.sparksql;
+package com.lorelib.spark.java.sparksql;
 
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaRDD;
