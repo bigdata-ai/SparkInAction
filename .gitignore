@@ -3,3 +3,7 @@
 *.iml
 out
 gen
+/target/
+.cache-main
+peopleExcellentResult
+peopleResult.json
