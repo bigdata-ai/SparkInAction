@@ -13,6 +13,7 @@ import java.util.Arrays;
 /**
  * @author listening
  * @description WordCountOnline:
+ * flume-ng agent -n agent1 -c conf -f /usr/local/flume/flume-1.8.0/conf/flume-conf.properties -Dflume.root.logger=DEBUG,console
  * @create 2018 02 21 上午3:03.
  */
 
