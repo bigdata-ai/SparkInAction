@@ -7,3 +7,4 @@ gen
 .cache-main
 peopleExcellentResult
 peopleResult.json
+dependency-reduced-pom.xml

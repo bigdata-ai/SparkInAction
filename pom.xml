@@ -68,6 +68,16 @@
     </dependency>
     <dependency>
       <groupId>org.apache.spark</groupId>
+      <artifactId>spark-streaming-flume_2.10</artifactId>
+      <version>${spark.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-streaming-kafka_2.10</artifactId>
+      <version>${spark.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.spark</groupId>
       <artifactId>spark-mllib_2.10</artifactId>
       <version>${spark.version}</version>
     </dependency>
@@ -127,6 +137,61 @@
           <fork>true</fork>
           <encoding>${project.build.sourceEncoding}</encoding>
         </configuration>
+      </plugin>
+      <!-- mvn assembly:assembly，弃用assembly使用maven-shade-plugin -->
+      <!--<plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>3.1.0</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>com.lorelib.spark.java.sparkstreaming.SparkStreamingOnKafkaReceiver</mainClass>
+            </manifest>
+          </archive>
+          <descriptors>
+            <descriptor>src/assembly/assembly.xml</descriptor>
+          </descriptors>
+          &lt;!&ndash;<descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>&ndash;&gt;
+        </configuration>
+        <executions>
+          <execution>
+            <id>make-assembly</id> &lt;!&ndash; this is used for inheritance merges &ndash;&gt;
+            <phase>package</phase> &lt;!&ndash; bind to the packaging phase &ndash;&gt;
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>-->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.1.0</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <artifactSet>
+                <includes>
+                  <include>org.apache.spark:spark-streaming-kafka_2.10</include>
+                  <include>org.apache.kafka:*</include>
+                  <include>com.101tec:zkclient</include>
+                  <include>com.yammer.metrics:*</include>
+                </includes>
+              </artifactSet>
+              <!--<transformers>
+                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                  <mainClass>com.lorelib.spark.java.sparkstreaming.SparkStreamingOnKafkaReceiver</mainClass>
+                </transformer>
+              </transformers>-->
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
