@@ -53,6 +53,6 @@ object SparkSQLWithJoinOps {
     val structType = DataTypes.createStructType(structFields.toArray)
     val df =sqlContext.createDataFrame(resultRDD, structType)
     df.show()
-    df.write.json("peopleExcellentResult")
+    df.write.json("data/peopleExcellentResult")
   }
 }

@@ -88,6 +88,6 @@ public class SparkSQLWithJoin {
     DataFrame personDF = sqlContext.createDataFrame(resultRowRDD, structType);
     personDF.show();
 
-    personDF.write().mode(SaveMode.Append).format("json").save("peopleResult.json");
+    personDF.write().mode(SaveMode.Append).format("json").save("data/peopleResult.json");
   }
 }
