@@ -28,7 +28,7 @@ public class ConnectionPool {
       try {
         for (int i = 0; i < 5; i++) {
           Connection conn = DriverManager.getConnection(
-              "jdbc:mysql://localhost:3306/spark",
+              "jdbc:mysql://Master:3306/spark",
               "root", "123456");
           connectionQueque.push(conn);
         }

@@ -21,9 +21,9 @@ object OnlineForeachRDD2DB {
     val words = lines.flatMap(_.split(" "))
     val wordCounts = words.map((_, 1)).reduceByKey(_ + _)
     wordCounts.foreachRDD(rdd => {
-      rdd.foreachPartition(partionOfRecords => {
+      rdd.foreachPartition(partitionOfRecords => {
         val conn = ConnectionPool.getConnection
-        partionOfRecords.foreach(record => {
+        partitionOfRecords.foreach(record => {
           val sql = "insert into streaming_items_count(item,count) values('" + record._1 + "'," + record._2 + ");"
           val stmt = conn.createStatement()
           stmt.executeUpdate(sql)
